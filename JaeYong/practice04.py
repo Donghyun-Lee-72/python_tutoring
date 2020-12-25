@@ -1,15 +1,25 @@
 if __name__ == "__main__":
     # Q1: 주어진 자연수가 홀수인지 짝수인지 판별해 주는 함수(is_odd)를 작성해 보자.
-    print("Q1")
-
+    number1 = int(input("자연수를 입력해주세요: "))
+    def is_odd(number1):
+        if number1 % 2 == 0:
+            return "Even"
+        else:
+            return "Odd"
+    print(is_odd(number1))
 
     # Q2: 입력으로 들어오는 모든 수의 평균 값을 계산해 주는 함수를 작성해 보자. (단 입력으로 들어오는 수의 개수는 정해져 있지 않다.)
         # 평균 값을 구할 때 len 함수를 사용해 보자.
-    print("Q2")
 
+    # *number = input("아무숫자들을 입력해주세요: ")
+    def mean(*number):
+        total = 0
+        for i in number:
+            total = total + i
+            result = total / len(number)
+        print(result)
 
     # Q3:
-    print("Q3")
     '''
     다음은 두 개의 숫자를 입력받아 더하여 돌려주는 프로그램이다.
     
@@ -28,17 +38,23 @@ if __name__ == "__main__":
     3과 6을 입력했을 때 9가 아닌 36이라는 결괏값을 돌려주었다. 이 프로그램의 오류를 수정해 보자.
     '''
     # int 함수를 사용해 보자.
-
+    input1 = int(input("첫번째 숫자를 입력하세요: "))
+    input2 = int(input("두번째 숫자를 입력하세요: "))
+    total = input1 + input2
+    print("두 수의 합은 %s 입니다" % total)
 
     # Q4: 다음 중 출력 결과가 다른 것 한 개를 골라 보자.
-    print("Q4")
     '''
     print("you" "need" "python")
     print("you"+"need"+"python")
     print("you", "need", "python")
     print("".join(["you", "need", "python"]))
     '''
-
+    #답은 3번째꺼.
+    # youneedpython
+    # youneedpython
+    # you    need    python
+    # youneedpython
 
     # Q5
     print("Q5")
@@ -56,7 +72,11 @@ if __name__ == "__main__":
 
     # Q6: 사용자의 입력을 파일(test.txt)에 저장하는 프로그램을 작성해 보자.
         # (단 프로그램을 다시 실행하더라도 기존에 작성한 내용을 유지하고 새로 입력한 내용을 추가해야 한다.)
-    print("Q6")
+    input6 = str(input("프로그램을 작성해주세요: "))
+    def program(input6):
+        f = open("test.txt", 'a')
+        f.write(input6)
+        f.close()
 
 
     # 07
