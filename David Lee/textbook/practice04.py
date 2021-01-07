@@ -71,11 +71,11 @@ if __name__ == "__main__":
     
     이 프로그램은 우리가 예상한 "Life is too short"라는 문장을 출력하지 않는다. 우리가 예상한 값을 출력할 수 있도록 프로그램을 수정해 보자.
     '''
-    f1 = open("test.txt", 'w')
+    f1 = open("../test.txt", 'w')
     f1.write("Life is too short")
     f1.close()
 
-    f2 = open("test.txt", 'r')
+    f2 = open("../test.txt", 'r')
     print(f2.read())
     f2.close()
 
