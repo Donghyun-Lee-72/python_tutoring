@@ -65,7 +65,7 @@ if __name__ == "__main__":
     req1 = requests.get(url1)
     print(req1.text)
 
-    url2 = https + ROUTING_americas + "/riot/account/v1/accounts/by-puuid/" + "d1oDsj3pnN5B2MaN1veU1hrMHTz4O2FyiiAsitUpiE_9jq-gUGswt8dEYH5PiPJ7H8P8uelGnDcBig" + "?api_key=" + api_key
-    req2 = requests.get(url2)
-    print(req2.text)
+    # url2 = https + ROUTING_americas + "/riot/account/v1/accounts/by-puuid/" + "d1oDsj3pnN5B2MaN1veU1hrMHTz4O2FyiiAsitUpiE_9jq-gUGswt8dEYH5PiPJ7H8P8uelGnDcBig" + "?api_key=" + api_key
+    # req2 = requests.get(url2)
+    # print(req2.text)
 
