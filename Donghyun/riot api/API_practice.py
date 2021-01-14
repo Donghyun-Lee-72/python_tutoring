@@ -1,12 +1,12 @@
 # API_practice.py
 
-import error
-import requests
-import json
+import error        # custom error
+import requests     # for API
+import json         # for json
 
 
 # VARIABLES
-api_key = "RGAPI-4f62a69a-8850-435b-8590-41e02010a457"
+api_key = "RGAPI-4c24c9f3-ed04-43a1-9048-7646968179d1"
 
 
 # CONSTANT VALUES
@@ -23,7 +23,7 @@ ROUTING_asia = "asia.api.riotgames.com"
 def name2puuid(game_name):
     """
     For the given name, summoner's puuid will be returned.
-    Also stores so far searched information.            // NOT IMPLEMENTED YET
+    Also stores so far searched information.
 
     :param game_name: string; name of player in League of Legneds
     :return: string; puuid of the player
@@ -31,6 +31,38 @@ def name2puuid(game_name):
     try:
         # search existing data
         with open("puuid.txt", "r") as f:
+            for line in f.readlines():
+                if line.split(",")[0] == game_name:
+                    return line.split(",")[1]   # puuid
+    except FileNotFoundError:
+        pass
+
+    # search from API
+    url_key = "/lol/summoner/v4/summoners/by-name/"
+    url = https + ROUTING_NA1 + url_key + game_name + "?api_key=" + api_key
+    req = requests.get(url)
+
+    if req.status_code == 200:
+        puuid = req.json()["puuid"]
+        with open("puuid.txt", "a") as f:
+            text = game_name + "," + puuid + '\n'
+            f.write(text)
+        return puuid
+    else:
+        raise error.StatusError(req.status_code)
+
+
+def name2summoner(game_name):
+    """
+    For the given name, summoner information will be returned.
+    Also stores so far searched information.            // NOT IMPLEMENTED YET
+
+    :param game_name: string; name of player in League of Legneds
+    :return: json; summoner information
+    """
+    try:
+        # search existing data
+        with open("summoner.txt", "r") as f:
             for line in f.readlines():
                 if line.split(",")[0] == game_name:
                     return line.split(",")[1]   # puuid
